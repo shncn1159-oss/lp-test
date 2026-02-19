@@ -3,476 +3,650 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>【中学受験】学研の家庭教師｜無料学習相談</title>
+  <title>中学受験｜学研ブランドの家庭教師（対面×オンライン）</title>
   <meta name="description" content="中学受験の不安を個別最適で解決。学研ブランドの信頼と、対面×オンラインの柔軟さ。不登校・発達特性にも対応。無料学習相談はこちら。" />
 
-  <!-- OGP（SNSで貼る用。画像URLは後で差し替え） -->
-  <meta property="og:title" content="【中学受験】学研の家庭教師｜無料学習相談" />
-  <meta property="og:description" content="学研ブランド×個別最適で、合格可能性を最大化。対面×オンライン対応。不登校・発達特性にも。" />
+  <meta property="og:title" content="中学受験｜学研ブランドの家庭教師（対面×オンライン）" />
+  <meta property="og:description" content="合格可能性を最大化する“個別最適”。無料学習相談（約1分）" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://example.com/ogp.jpg" />
 
   <style>
     :root{
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --line: #e2e8f0;
-      --navy: #0b1f3a;
+      /* kameっぽい：白＋濃紺＋黄（差し色） */
+      --ink:#0c1b2a;
+      --ink2:#17324c;
+      --muted:#5b6b7a;
+      --line:#e6ebf1;
+      --bg:#ffffff;
+      --soft:#f6f8fb;
+      --card:#ffffff;
+      --shadow: 0 10px 28px rgba(12,27,42,.10);
+
+      --accent:#ffd24d;     /* CTA帯の黄色 */
+      --accent2:#ffb000;    /* CTAボタンの濃い黄 */
+      --navy:#0b1f3a;
       --navy2:#12325a;
-      --gold: #b08d57;
-      --card: #ffffff;
-      --soft: #f8fafc;
-      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
-      --radius: 18px;
-      --max: 1080px;
+
+      --radius:16px;
+      --radius2:22px;
+      --max: 1120px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.65;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+        "Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.75;
+      letter-spacing:.01em;
     }
     a{color:inherit}
     .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* ===== Header (kameっぽい：上部に電話/問い合わせ感) ===== */
     .topbar{
       position:sticky;top:0;z-index:50;
-      background: rgba(255,255,255,.86);
+      background:rgba(255,255,255,.88);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      border-bottom:1px solid var(--line);
     }
     .topbar-inner{
       display:flex;align-items:center;justify-content:space-between;
-      padding:12px 0;
-      gap:12px;
+      gap:12px;padding:12px 0;
     }
-    .brand{
+    .logo{
       display:flex;align-items:center;gap:10px;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.02em;
     }
-    .badge{
+    .logo-badge{
       font-size:12px;
-      border:1px solid rgba(176,141,87,.45);
-      color: var(--navy);
       padding:4px 10px;border-radius:999px;
-      background: rgba(176,141,87,.12);
+      border:1px solid rgba(11,31,58,.18);
+      background:rgba(11,31,58,.06);
+      color:var(--navy);
       white-space:nowrap;
     }
-    .cta{
+    .righttools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .phone{
+      display:flex;align-items:center;gap:8px;
+      font-weight:900;
+      color:var(--ink2);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .phone svg{width:16px;height:16px;opacity:.8}
+    .btn{
       display:inline-flex;align-items:center;justify-content:center;
       padding:12px 16px;
-      border-radius: 999px;
+      border-radius:999px;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       border:1px solid rgba(255,255,255,.18);
-      background: linear-gradient(180deg, var(--navy2), var(--navy));
       color:#fff;
-      box-shadow: 0 10px 24px rgba(11,31,58,.25);
-      transition: transform .08s ease, box-shadow .2s ease, opacity .2s ease;
+      background: linear-gradient(180deg, var(--navy2), var(--navy));
+      box-shadow: 0 12px 26px rgba(11,31,58,.20);
+      transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
       white-space:nowrap;
     }
-    .cta:hover{transform: translateY(-1px); box-shadow: 0 14px 30px rgba(11,31,58,.28);}
-    .cta:active{transform: translateY(0px); opacity:.92;}
-    .cta.secondary{
-      background:#fff;
-      color: var(--navy);
-      border:1px solid rgba(11,31,58,.22);
+    .btn:hover{transform:translateY(-1px); box-shadow:0 16px 30px rgba(11,31,58,.24)}
+    .btn:active{transform:translateY(0);opacity:.93}
+    .btn.light{
+      background:#fff;color:var(--navy);
+      border:1px solid rgba(11,31,58,.20);
       box-shadow:none;
     }
+
+    /* ===== Hero (kameっぽい：大きいコピー＋短いサブ) ===== */
     .hero{
       position:relative;
-      padding:38px 0 20px;
+      padding:44px 0 26px;
       overflow:hidden;
-      background:
-        radial-gradient(1200px 500px at 20% 0%, rgba(176,141,87,.18), transparent 60%),
-        radial-gradient(1000px 600px at 80% 10%, rgba(18,50,90,.14), transparent 55%),
-        linear-gradient(180deg, #ffffff, #fbfdff);
       border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(900px 420px at 15% 10%, rgba(255,210,77,.30), transparent 55%),
+        radial-gradient(900px 520px at 85% 0%, rgba(18,50,90,.12), transparent 60%),
+        linear-gradient(180deg, #ffffff, #fbfcfe);
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:22px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
       align-items:stretch;
     }
-    .h-eyebrow{
-      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    .eyebrow{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+      font-weight:900;color:var(--ink2);
       margin:0 0 10px;
-      color: var(--navy);
-      font-weight:700;
     }
-    .dot{width:6px;height:6px;background:var(--gold);border-radius:99px;display:inline-block}
+    .eyebrow .dot{width:10px;height:10px;border-radius:99px;background:var(--accent2)}
     h1{
       margin:0 0 12px;
-      font-size: clamp(28px, 4.0vw, 44px);
-      line-height:1.18;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height:1.12;
       letter-spacing:-.02em;
+      font-weight:1000;
     }
-    .lead{
-      margin:0 0 16px;
-      color: var(--muted);
-      font-size: 16px;
+    .hero-sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+      max-width: 44em;
     }
-    .hero-pills{
-      display:flex;flex-wrap:wrap;gap:8px;
-      margin: 14px 0 18px;
+    .hero-sub strong{color:var(--ink2)}
+    .note-mini{
+      font-size:12px;color:var(--muted);
+      margin-top:10px;
+      padding:10px 12px;
+      border-left:3px solid rgba(255,178,0,.55);
+      background: rgba(255,210,77,.16);
+      border-radius: 12px;
     }
+
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
     .pill{
       font-size:13px;
-      padding:7px 10px;
-      border-radius:999px;
+      padding:7px 10px;border-radius:999px;
       border:1px solid var(--line);
       background:#fff;
-      color: #0b1f3a;
+      color:var(--ink2);
+      font-weight:800;
     }
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .small-note{margin-top:10px;color: var(--muted);font-size:12.5px}
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+
     .hero-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
       padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      height:100%;
+      display:flex;flex-direction:column;gap:12px;
     }
-    .kpis{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
+    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .kpi{
-      border:1px solid rgba(11,31,58,.12);
-      border-radius: 14px;
+      border-radius:14px;
+      border:1px solid rgba(12,27,42,.12);
+      background: linear-gradient(180deg, rgba(12,27,42,.06), rgba(12,27,42,.02));
       padding:12px;
-      background: linear-gradient(180deg, rgba(11,31,58,.06), rgba(11,31,58,.02));
     }
-    .kpi .num{
-      font-weight:900;
-      font-size:22px;
-      letter-spacing:-.02em;
-      color: var(--navy);
-    }
-    .kpi .lbl{font-size:12px;color: var(--muted);margin-top:2px}
-    .trustlist{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
-    .section{padding:44px 0}
-    .section.soft{background: var(--soft); border-top: 1px solid var(--line); border-bottom:1px solid var(--line)}
-    .sec-title{
-      margin:0 0 10px;
-      font-size: clamp(22px, 3vw, 30px);
-      letter-spacing:-.01em;
-    }
-    .sec-lead{margin:0 0 18px;color:var(--muted)}
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .grid-2{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:14px;
-    }
-    .box{
+    .kpi .num{font-weight:1000;font-size:22px;color:var(--ink2);letter-spacing:-.02em}
+    .kpi .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+    .list{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+    /* ===== CTA band (kameっぽい：黄色の帯＋“◯分”強調) ===== */
+    .cta-band{
+      margin-top:18px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,178,0,.35);
+      background: linear-gradient(180deg, rgba(255,210,77,.55), rgba(255,210,77,.30));
       padding:16px;
-      border-radius: var(--radius);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .cta-band h3{
+      margin:0;
+      font-size:18px;
+      line-height:1.2;
+      letter-spacing:-.01em;
+      font-weight:1000;
+      color:var(--ink2);
+    }
+    .cta-band .small{
+      margin:2px 0 0;
+      font-size:12.5px;color:rgba(12,27,42,.78);
+      font-weight:800;
+    }
+    .btn-accent{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:999px;
+      font-weight:1000;
+      text-decoration:none;
+      color:#2a1a00;
+      background: linear-gradient(180deg, #ffd24d, #ffb000);
+      border:1px solid rgba(120,70,0,.20);
+      box-shadow: 0 10px 18px rgba(255,178,0,.20);
+      white-space:nowrap;
+      transition: transform .08s ease, opacity .2s ease;
+    }
+    .btn-accent:hover{transform:translateY(-1px)}
+    .btn-accent:active{transform:translateY(0);opacity:.93}
+
+    /* ===== Sections ===== */
+    .section{padding:54px 0}
+    .section.soft{background:var(--soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+    .title{
+      margin:0 0 10px;
+      font-size: clamp(24px, 3.2vw, 34px);
+      line-height:1.2;
+      letter-spacing:-.01em;
+      font-weight:1000;
+    }
+    .lead{margin:0 0 18px;color:var(--muted)}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{
       background:#fff;
       border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding:16px;
     }
-    .box h3{margin:0 0 6px;font-size:16px}
-    .box p{margin:0;color:var(--muted);font-size:14px}
-    .check{
-      margin:0;padding:0;list-style:none;
-      display:grid;gap:10px;
+    .minihead{
+      display:flex;align-items:center;gap:10px;
+      margin:0 0 6px;
+      font-weight:1000;
+      color:var(--ink2);
     }
-    .check li{
-      display:flex;gap:10px;align-items:flex-start;
-      padding:12px;border:1px solid var(--line);border-radius: 14px;background:#fff;
-    }
-    .tick{
-      width:22px;height:22px;border-radius:999px;
-      background: rgba(176,141,87,.18);
-      border:1px solid rgba(176,141,87,.35);
+    .miniicon{
+      width:28px;height:28px;border-radius:10px;
+      background: rgba(18,50,90,.08);
+      border:1px solid rgba(18,50,90,.14);
       display:flex;align-items:center;justify-content:center;
-      flex:0 0 auto;
-      color: var(--navy);
-      font-weight:900;
+    }
+    .miniicon svg{width:16px;height:16px;opacity:.85}
+    .muted{color:var(--muted);font-size:14px;margin:0}
+
+    /* ===== Tabs (声) ===== */
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 14px}
+    .tab{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:1000;
+      color:var(--ink2);
+      cursor:pointer;
+      user-select:none;
       font-size:13px;
-      margin-top:1px;
     }
-    .steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-    .steps li{
-      display:flex;gap:12px;
-      padding:14px;
-      border-radius: var(--radius);
+    .tab.active{
+      background: rgba(255,210,77,.36);
+      border-color: rgba(255,178,0,.35);
+    }
+    .voices{display:grid;gap:12px}
+    .voice{
+      border-radius: var(--radius2);
       border:1px solid var(--line);
       background:#fff;
-      align-items:flex-start;
+      padding:16px;
     }
-    .stepnum{
-      width:34px;height:34px;border-radius:12px;
-      background: linear-gradient(180deg, rgba(18,50,90,.14), rgba(18,50,90,.06));
-      border:1px solid rgba(18,50,90,.18);
+    .voice .who{
+      font-weight:1000;color:var(--ink2);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      margin-bottom:6px;
+    }
+    .voice .tag{
+      font-size:12px;color:rgba(12,27,42,.78);
+      background: rgba(12,27,42,.06);
+      border:1px solid rgba(12,27,42,.10);
+      padding:4px 10px;border-radius:999px;
+      white-space:nowrap;
+    }
+    .voice p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ===== “合格実績っぽい”ロゴグリッド（ダミー） ===== */
+    .logo-grid{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .logo-chip{
+      border:1px dashed rgba(12,27,42,.22);
+      border-radius: 14px;
+      background:#fff;
+      padding:12px 8px;
+      text-align:center;
+      font-weight:1000;
+      color:rgba(12,27,42,.62);
+      font-size:12px;
+      line-height:1.1;
+      min-height:56px;
       display:flex;align-items:center;justify-content:center;
-      font-weight:900;color: var(--navy);
-      flex:0 0 auto;
     }
-    .faq{display:grid;gap:10px}
+    .logo-note{font-size:12px;color:var(--muted);margin-top:10px}
+
+    /* ===== “5つの強み” kameっぽい縦並び ===== */
+    .strengths{display:grid;gap:12px;margin-top:14px}
+    .strength{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:14px;
+      padding:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: var(--radius2);
+    }
+    .strength .badgeBig{
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,210,77,.55), rgba(255,210,77,.22));
+      border:1px solid rgba(255,178,0,.28);
+      padding:14px;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:1000;
+      color:var(--ink2);
+      text-align:center;
+      line-height:1.15;
+    }
+    .strength h3{margin:0 0 6px;font-size:16px;font-weight:1000;color:var(--ink2)}
+    .strength p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ===== FAQ ===== */
     details{
       border:1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: var(--radius2);
       background:#fff;
       padding: 12px 14px;
     }
     summary{
       cursor:pointer;
-      font-weight:800;
-      color: var(--navy);
+      font-weight:1000;
+      color: var(--ink2);
       list-style:none;
     }
     summary::-webkit-details-marker{display:none}
     details p{margin:10px 0 0;color:var(--muted);font-size:14px}
-    .final{
-      padding: 46px 0 56px;
-      background:
-        radial-gradient(900px 400px at 10% 0%, rgba(176,141,87,.18), transparent 55%),
-        radial-gradient(900px 500px at 90% 20%, rgba(18,50,90,.16), transparent 58%),
-        linear-gradient(180deg, #fbfdff, #ffffff);
-      border-top:1px solid var(--line);
-    }
+
     .footer{
       padding:18px 0;
       border-top:1px solid var(--line);
       color: var(--muted);
       font-size:12px;
+      background:#fff;
     }
-    .note{
-      font-size:12px;color:var(--muted);
-      border-left:3px solid rgba(176,141,87,.5);
-      padding:10px 12px;margin-top:12px;background: rgba(176,141,87,.08);
-      border-radius: 12px;
-    }
-    .legal{
-      font-size:12px;
-      color: var(--muted);
-      margin-top: 10px;
-      line-height: 1.7;
-    }
+    code{background:rgba(12,27,42,.06);padding:1px 6px;border-radius:8px}
 
-    @media (max-width: 900px){
+    @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr;gap:14px}
-      .grid-3{grid-template-columns:1fr;gap:12px}
-      .grid-2{grid-template-columns:1fr;gap:12px}
-      .kpis{grid-template-columns:1fr 1fr}
+      .grid3{grid-template-columns:1fr;gap:12px}
+      .grid2{grid-template-columns:1fr;gap:12px}
+      .logo-grid{grid-template-columns: repeat(3, 1fr)}
+      .strength{grid-template-columns:1fr}
     }
-    @media (max-width: 520px){
+    @media (max-width: 560px){
       .kpis{grid-template-columns:1fr}
-      .topbar-inner{padding:10px 0}
+      .cta-band{flex-direction:column;align-items:flex-start}
+      .righttools{justify-content:flex-end}
     }
   </style>
 </head>
 
 <body>
-  <!-- Sticky Top -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-inner">
-        <div class="brand">
-          <span>中学受験 家庭教師</span>
-          <span class="badge">学研ブランド</span>
+        <div class="logo">
+          <span>学研ブランドの家庭教師</span>
+          <span class="logo-badge">中学受験</span>
         </div>
-        <a class="cta js-aff" href="#" data-cta="top">無料学習相談</a>
+
+        <div class="righttools">
+          <div class="phone" aria-label="電話番号（ダミー表示）">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 3h8v18H8V3Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 18h4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>受付：10:00〜18:00（例）</span>
+          </div>
+          <a class="btn js-aff" href="#" data-cta="top">無料学習相談（無料）</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="h-eyebrow"><span class="dot"></span> 中学受験に“個別最適”という選択</div>
-          <h1>合格可能性を最大化する<br>学研の家庭教師（対面×オンライン）</h1>
-          <p class="lead">
-            「塾に通っているのに伸びない」「集団が合わない」「不登校・発達特性が心配」——
+          <p class="eyebrow"><span class="dot"></span> 行きたいところに、行こう。中学受験の“個別最適”</p>
+          <h1>合格に直結する<br>学研ブランドの家庭教師</h1>
+          <p class="hero-sub">
+            「塾に通っているのに伸びない」「集団が合わない」「不登校・発達特性が心配」——<br>
             中学受験は、努力量よりも<strong>戦略と設計</strong>で差がつきます。
           </p>
 
-          <div class="hero-pills">
+          <div class="pillrow">
             <span class="pill">進路決定率 98.8%</span>
             <span class="pill">満足度 98%</span>
-            <span class="pill">不登校・発達特性にも対応</span>
-            <span class="pill">海外在住OK</span>
+            <span class="pill">対面×オンライン併用</span>
+            <span class="pill">海外在住も対応</span>
           </div>
 
-          <div class="hero-actions">
-            <a class="cta js-aff" id="cta" href="#" data-cta="fv">無料学習相談で状況を整理する</a>
-            <a class="cta secondary" href="#problems" data-cta="read">悩みから読む</a>
+          <div class="cta-band" role="region" aria-label="資料請求CTA帯">
+            <div>
+              <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
+              <div class="small">※入力はかんたん。状況整理だけでもOK。</div>
+            </div>
+            <a class="btn-accent js-aff" href="#" data-cta="fv">無料学習相談をはじめる</a>
           </div>
-          <div class="small-note">※「相談だけ」でもOK。合わなければ見送りできます（想定文言）。</div>
 
-          <div class="note">
-            <strong>アフィ運用メモ：</strong>各CTAは同じ遷移先でも、<code>utm_content</code> で位置別に計測できます（fv / side / mid / flow / final）。
+          <div class="note-mini">
+            ※数値は訴求用の記載例です。表現・数値・対応範囲は必ず広告主の最新情報をご確認ください。
           </div>
         </div>
 
-        <aside class="card hero-card">
-          <div style="font-weight:900;color:var(--navy);font-size:16px">数字でわかる安心感</div>
+        <aside class="hero-card">
+          <div style="font-weight:1000;color:var(--ink2);font-size:16px">“安心感”が伝わるポイント</div>
           <div class="kpis">
-            <div class="kpi">
-              <div class="num">98.8%</div>
-              <div class="lbl">進路決定率（訴求用）</div>
-            </div>
-            <div class="kpi">
-              <div class="num">98%</div>
-              <div class="lbl">満足度（訴求用）</div>
-            </div>
+            <div class="kpi"><div class="num">98.8%</div><div class="lbl">進路決定率（訴求）</div></div>
+            <div class="kpi"><div class="num">98%</div><div class="lbl">満足度（訴求）</div></div>
           </div>
-          <ul class="trustlist">
-            <li>対面・オンライン併用可能（Zoomで即開始）</li>
-            <li>幼児〜高校生／不登校・発達特性にも対応</li>
-            <li>教育・子育て・受験メディアと親和性◎</li>
+          <ul class="list">
+            <li>専任スタッフ×講師で学習を設計</li>
+            <li>不登校・発達特性にも対応（相談可）</li>
+            <li>対面/オンラインのハイブリッド</li>
           </ul>
-          <div style="margin-top:auto">
-            <a class="cta js-aff" href="#" data-cta="side">無料学習相談へ</a>
-            <div class="small-note">※「学研」ブランドの安心感を最短で伝える配置</div>
+          <div class="hero-actions">
+            <a class="btn js-aff" href="#" data-cta="side">無料学習相談へ</a>
+            <a class="btn light" href="#voices" data-cta="read">声を見る</a>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEMS -->
+  <!-- 声（kameっぽいタブ） -->
+  <section class="section" id="voices">
+    <div class="container">
+      <h2 class="title">生徒・保護者の声</h2>
+      <p class="lead">“学研にしてよかった”という声が増えています（構成は参考・文章は例）。</p>
+
+      <div class="tabs" role="tablist" aria-label="声のタブ">
+        <div class="tab active" role="tab" aria-selected="true" data-tab="tab1">中学受験（小4〜小6）</div>
+        <div class="tab" role="tab" aria-selected="false" data-tab="tab2">保護者</div>
+        <div class="tab" role="tab" aria-selected="false" data-tab="tab3">不登校・発達特性</div>
+      </div>
+
+      <div class="voices">
+        <div class="voice" data-panel="tab1">
+          <div class="who"><span>小学6年・保護者（例）</span><span class="tag">塾→家庭教師へ</span></div>
+          <p>集団塾では復習が追いつかず、苦手が積み上がっていました。家庭教師で「戻り学習→演習→定着」の順番がはっきりし、半年で安定して得点できるように。</p>
+        </div>
+        <div class="voice" data-panel="tab1">
+          <div class="who"><span>小学5年・生徒（例）</span><span class="tag">算数が苦手</span></div>
+          <p>解き方だけじゃなく、どこで間違えやすいかを教えてくれて、宿題も「これだけやればOK」になったのがよかったです。</p>
+        </div>
+
+        <div class="voice" data-panel="tab2" style="display:none">
+          <div class="who"><span>保護者（例）</span><span class="tag">学習管理が助かった</span></div>
+          <p>「何を、いつまでに」を週単位で決めてもらえ、家庭内の声かけがラクになりました。成績だけでなく、取り組み方が変化。</p>
+        </div>
+        <div class="voice" data-panel="tab2" style="display:none">
+          <div class="who"><span>保護者（例）</span><span class="tag">相談しやすい</span></div>
+          <p>不安点を相談すると、方針を言語化してくれるので安心できました。講師の変更相談もしやすいのが良かったです。</p>
+        </div>
+
+        <div class="voice" data-panel="tab3" style="display:none">
+          <div class="who"><span>保護者（例）</span><span class="tag">ペース設計</span></div>
+          <p>無理に競争に乗せず、本人の集中できる時間に合わせて設計。成功体験が増えると学習への抵抗感が減りました。</p>
+        </div>
+        <div class="voice" data-panel="tab3" style="display:none">
+          <div class="who"><span>生徒（例）</span><span class="tag">オンライン併用</span></div>
+          <p>対面がしんどい時はオンラインに切り替えられるのが安心。続けやすいのが良かったです。</p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <div class="cta-band">
+          <div>
+            <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
+            <div class="small">悩みを整理して、次にやることを明確に。</div>
+          </div>
+          <a class="btn-accent js-aff" href="#" data-cta="mid">無料学習相談を申し込む</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合格実績っぽい -->
+  <section class="section soft" id="results">
+    <div class="container">
+      <h2 class="title">合格実績（見せ方の参考）</h2>
+      <p class="lead">ロゴを並べるだけで“規模感”が伝わります（ここはダミー表示。実運用では広告主の許諾・表記ルールに合わせてください）。</p>
+
+      <div class="logo-grid" aria-label="合格実績ロゴ（ダミー）">
+        <div class="logo-chip">難関校A</div><div class="logo-chip">難関校B</div><div class="logo-chip">難関校C</div>
+        <div class="logo-chip">附属校D</div><div class="logo-chip">附属校E</div><div class="logo-chip">人気校F</div>
+        <div class="logo-chip">中高一貫G</div><div class="logo-chip">中高一貫H</div><div class="logo-chip">中高一貫I</div>
+        <div class="logo-chip">地域上位J</div><div class="logo-chip">地域上位K</div><div class="logo-chip">地域上位L</div>
+      </div>
+      <div class="logo-note">※実績表記は「年度」「範囲」「出典」など、広告主のガイドに必ず準拠してください。</div>
+    </div>
+  </section>
+
+  <!-- 悩み -->
   <section class="section" id="problems">
     <div class="container">
-      <h2 class="sec-title">中学受験、こんなお悩みありませんか？</h2>
-      <p class="sec-lead">“能力”ではなく、学習の<strong>戦い方（設計）</strong>が合っていないケースが多いです。</p>
+      <h2 class="title">中学受験、こんなお悩みありませんか？</h2>
+      <p class="lead">それもそのはず。中学受験は「情報量」と「優先順位」で迷いやすいからです。</p>
 
-      <ul class="check">
-        <li><span class="tick">✓</span><div><strong>塾に通っているのに点が伸びない</strong><div style="color:var(--muted);font-size:14px">「授業は受けている」けど「何を・どう復習するか」が曖昧。</div></div></li>
-        <li><span class="tick">✓</span><div><strong>集団授業が合わない／置いていかれる</strong><div style="color:var(--muted);font-size:14px">理解の穴が残るほど、後半で一気に苦しくなります。</div></div></li>
-        <li><span class="tick">✓</span><div><strong>志望校まで何が足りないか分からない</strong><div style="color:var(--muted);font-size:14px">現状→合格までを“分解して可視化”できると、行動が変わります。</div></div></li>
-        <li><span class="tick">✓</span><div><strong>不登校・発達特性があり受験が不安</strong><div style="color:var(--muted);font-size:14px">環境・ペース・成功体験の設計が特に重要です。</div></div></li>
-      </ul>
+      <div class="grid2">
+        <div class="card">
+          <div class="minihead">
+            <div class="miniicon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V6l8-3 8 3v14" stroke="currentColor" stroke-width="2"/><path d="M9 22v-8h6v8" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>塾に通っているのに伸びない</div>
+          </div>
+          <p class="muted">「授業は受けた」けど「復習の設計」が曖昧になりがち。</p>
+        </div>
+
+        <div class="card">
+          <div class="minihead">
+            <div class="miniicon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4V4Z" stroke="currentColor" stroke-width="2"/><path d="M7 20h10" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>何から始めればいいか分からない</div>
+          </div>
+          <p class="muted">志望校から逆算できると、今日やるべきことが見えます。</p>
+        </div>
+
+        <div class="card">
+          <div class="minihead">
+            <div class="miniicon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="2"/><path d="M5 9h14" stroke="currentColor" stroke-width="2"/><path d="M7 21h10" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>集団授業が合わない</div>
+          </div>
+          <p class="muted">理解の穴が残るほど、後半で一気に苦しくなります。</p>
+        </div>
+
+        <div class="card">
+          <div class="minihead">
+            <div class="miniicon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10Z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>不登校・発達特性で不安</div>
+          </div>
+          <p class="muted">ペース設計と成功体験の積み上げが重要です。</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section class="section soft" id="solution">
+  <!-- 5つの強み（kame風） -->
+  <section class="section soft" id="strengths">
     <div class="container">
-      <h2 class="sec-title">学研の家庭教師がつくる「伸びる仕組み」</h2>
-      <p class="sec-lead">授業を増やす前に、まず<strong>現状診断 → 戦略設計 → 実行支援</strong>を整えます。</p>
+      <h2 class="title">悩みを解決する “5つの強み”</h2>
+      <p class="lead">「家庭教師なんてどこも同じ」ではありません。学研ブランド×個別最適だからできる強みがあります。</p>
 
-      <div class="grid-3">
-        <div class="box">
-          <h3>① 現状診断</h3>
-          <p>単元だけでなく「解けない理由（思考手順／習慣／復習設計）」を特定します。</p>
+      <div class="strengths">
+        <div class="strength">
+          <div class="badgeBig">強み<br>1</div>
+          <div>
+            <h3>学研ブランドの圧倒的信頼性</h3>
+            <p>保護者の安心感を高め、行動（問い合わせ）を後押し。サービス選びの不安を最初に減らします。</p>
+          </div>
         </div>
-        <div class="box">
-          <h3>② 受験戦略の設計</h3>
-          <p>志望校から逆算し、「何をいつまでに」を週単位で固定。迷いを消します。</p>
+
+        <div class="strength">
+          <div class="badgeBig">強み<br>2</div>
+          <div>
+            <h3>個別最適な“受験戦略設計”</h3>
+            <p>志望校から逆算して「何を・いつまでに」を明確化。迷いを消して、学習の質を上げます。</p>
+          </div>
         </div>
-        <div class="box">
-          <h3>③ 実行支援（継続）</h3>
-          <p>宿題設計・振り返り・声かけで、家庭学習が“回る状態”を作ります。</p>
+
+        <div class="strength">
+          <div class="badgeBig">強み<br>3</div>
+          <div>
+            <h3>対面×オンラインのハイブリッド</h3>
+            <p>Zoomですぐ開始。体調や生活に合わせて切り替え可能。海外在住のご家庭にも対応できます。</p>
+          </div>
+        </div>
+
+        <div class="strength">
+          <div class="badgeBig">強み<br>4</div>
+          <div>
+            <h3>不登校・発達特性への対応力</h3>
+            <p>競争に乗せるのではなく、本人に合うペースと成功体験を設計。続けやすさを作ります。</p>
+          </div>
+        </div>
+
+        <div class="strength">
+          <div class="badgeBig">強み<br>5</div>
+          <div>
+            <h3>記事に盛り込みやすい“根拠（数字）”</h3>
+            <p>進路決定率98.8%・満足度98%など、訴求の根拠として扱いやすい要素が豊富（※表記は要確認）。</p>
+          </div>
         </div>
       </div>
 
-      <div style="margin-top:16px" class="box">
-        <h3>対面×オンラインで、生活に合わせて最適化</h3>
-        <p>スマホ・タブレット・PCとZoomで開始。海外在住のご家庭にも対応（訴求）。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST / DIFFERENTIATION -->
-  <section class="section" id="trust">
-    <div class="container">
-      <h2 class="sec-title">選ばれる理由：信頼 × 対応力 × 数字</h2>
-      <p class="sec-lead">アフィ記事にも落とし込みやすい“強い根拠”を、LPでは先に見せます。</p>
-
-      <div class="grid-2">
-        <div class="box">
-          <h3>学研ブランドによる圧倒的な信頼性</h3>
-          <p>誰もが知る「学研」の名前が、保護者の安心感と行動（クリック）を後押しします。</p>
-        </div>
-        <div class="box">
-          <h3>不登校・発達特性にも対応</h3>
-          <p>深い悩みほど情報収集意欲が高く、適切な導線設計でCVにつながりやすい領域です。</p>
-        </div>
-        <div class="box">
-          <h3>記事に盛り込みやすい“実績数字”</h3>
-          <p>進路決定率98.8%・満足度98%など、根拠として扱いやすい数値が豊富です（訴求）。</p>
-        </div>
-        <div class="box">
-          <h3>教育・子育て・受験メディアと親和性</h3>
-          <p>教育系の幅広いジャンルで展開しやすく、アフィ側の導線設計にも相性が良いです。</p>
-        </div>
-      </div>
-
-      <div style="margin-top:16px" class="hero-actions">
-        <a class="cta js-aff" href="#" data-cta="mid">無料学習相談へ進む</a>
-        <a class="cta secondary" href="#flow" data-cta="flowlink">流れを見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL ISSUE -->
-  <section class="section soft" id="support">
-    <div class="container">
-      <h2 class="sec-title">不登校・発達特性があっても「受験の道筋」は作れます</h2>
-      <p class="sec-lead">
-        大切なのは、競争に乗せることではなく、<strong>本人に合うペースと成功体験</strong>を設計すること。
-        “今の状態”から受験の可能性を整理したい方は、まず相談から。
-      </p>
-
-      <div class="grid-3">
-        <div class="box">
-          <h3>環境と負荷の調整</h3>
-          <p>集中できる時間・タイミングに合わせて、無理のない学習設計へ。</p>
-        </div>
-        <div class="box">
-          <h3>自己肯定感を下げない指導</h3>
-          <p>「できた」を積み上げる設計で、勉強への抵抗感を下げます。</p>
-        </div>
-        <div class="box">
-          <h3>保護者の安心にもつながる</h3>
-          <p>現状と方針が見えると、家庭内の不安が減りやすくなります。</p>
+      <div style="margin-top:18px">
+        <div class="cta-band">
+          <div>
+            <h3>まずは、無料学習相談から</h3>
+            <div class="small">状況整理 → 方針決定までスムーズ。</div>
+          </div>
+          <a class="btn-accent js-aff" href="#" data-cta="flow">無料学習相談をする</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FLOW -->
+  <!-- 流れ -->
   <section class="section" id="flow">
     <div class="container">
-      <h2 class="sec-title">無料学習相談〜開始までの流れ</h2>
-      <p class="sec-lead">迷わせない3ステップ。まずは状況整理だけでもOK。</p>
+      <h2 class="title">無料学習相談〜開始までの流れ</h2>
+      <p class="lead">迷わせない3ステップ。まずは状況整理だけでもOK。</p>
 
-      <ol class="steps">
-        <li>
-          <div class="stepnum">1</div>
-          <div><strong>無料学習相談</strong><div style="color:var(--muted);font-size:14px">学年・志望校・現在の状況を共有（ざっくりでOK）。</div></div>
-        </li>
-        <li>
-          <div class="stepnum">2</div>
-          <div><strong>現状分析・方針の整理</strong><div style="color:var(--muted);font-size:14px">どこを伸ばすと合格に近づくかを可視化。</div></div>
-        </li>
-        <li>
-          <div class="stepnum">3</div>
-          <div><strong>指導開始（対面×オンライン）</strong><div style="color:var(--muted);font-size:14px">生活に合わせて設計。Zoomで即開始も可能。</div></div>
-        </li>
-      </ol>
-
-      <div style="margin-top:16px" class="hero-actions">
-        <a class="cta js-aff" href="#" data-cta="flow">無料学習相談はこちら</a>
+      <div class="grid3">
+        <div class="card">
+          <div class="minihead"><div class="miniicon">1</div><div>無料学習相談</div></div>
+          <p class="muted">学年・志望校・いまの状況を共有（ざっくりでOK）。</p>
+        </div>
+        <div class="card">
+          <div class="minihead"><div class="miniicon">2</div><div>現状分析</div></div>
+          <p class="muted">どこを伸ばすと合格に近づくかを可視化します。</p>
+        </div>
+        <div class="card">
+          <div class="minihead"><div class="miniicon">3</div><div>指導開始</div></div>
+          <p class="muted">対面×オンラインで生活に合わせて最適化。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -480,62 +654,48 @@
   <!-- FAQ -->
   <section class="section soft" id="faq">
     <div class="container">
-      <h2 class="sec-title">よくある質問</h2>
-      <div class="faq">
+      <h2 class="title">よくある質問</h2>
+      <div style="display:grid;gap:12px">
         <details>
           <summary>Q. 今の学力でも間に合いますか？</summary>
-          <p>A. まずは現状と志望校から逆算し、優先順位を整理します。伸ばすポイントが明確になると、同じ勉強時間でも成果が変わりやすいです。</p>
+          <p>A. 現状と志望校から逆算し、優先順位を整理します。伸ばすポイントが明確になると、同じ勉強時間でも成果が変わります。</p>
         </details>
         <details>
           <summary>Q. 不登校・発達特性があっても相談できますか？</summary>
-          <p>A. 可能です。ペース設計や成功体験づくりを重視し、本人に合う進め方を整理します。</p>
+          <p>A. 可能です。ペース設計や成功体験づくりを重視して進め方を整理します。</p>
         </details>
         <details>
           <summary>Q. オンラインでも効果はありますか？</summary>
-          <p>A. Zoomで対応でき、移動負担がない分、継続しやすいメリットがあります。対面との併用も可能（訴求）。</p>
-        </details>
-        <details>
-          <summary>Q. 相談だけでも大丈夫ですか？</summary>
-          <p>A. 大丈夫です（想定文言）。まずは状況整理をしてから検討できます。</p>
+          <p>A. Zoomで対応でき、移動負担がない分、継続しやすいメリットがあります。対面との併用も可能です。</p>
         </details>
       </div>
-    </div>
-  </section>
 
-  <!-- FINAL CTA -->
-  <section class="final" id="final">
-    <div class="container">
-      <div class="card" style="padding:18px">
-        <h2 class="sec-title" style="margin-bottom:6px">まずは無料学習相談で「合格までの道筋」を整理</h2>
-        <p class="sec-lead" style="margin-bottom:14px">
-          中学受験は、努力量よりも<strong>戦略と設計</strong>。<br>
-          いまの状況から、最短で何をすべきかを明確にします。
+      <div style="margin-top:18px">
+        <div class="cta-band">
+          <div>
+            <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
+            <div class="small">リンク先で詳細確認 → お申し込みへ。</div>
+          </div>
+          <a class="btn-accent js-aff" href="#" data-cta="final">無料学習相談を申し込む</a>
+        </div>
+
+        <p style="margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.7">
+          ※本ページはアフィリエイト検証用のLPテンプレートです。表現・数値・対応範囲は必ず広告主の最新情報をご確認ください。<br>
+          ※リンクをクリックすると外部サイトへ移動します。
         </p>
-        <div class="hero-actions">
-          <a class="cta js-aff" href="#" data-cta="final">無料学習相談を申し込む</a>
-          <a class="cta secondary" href="#problems" data-cta="back">悩みを見直す</a>
-        </div>
-
-        <div class="legal">
-          ※本ページはアフィリエイト検証用のLPテンプレートです。記載の表現・数値・対応範囲は必ず広告主の最新情報をご確認ください。<br>
-          ※リンクをクリックすると、外部サイトへ移動します。
-        </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <div>© LP Test. ※本ページはアフィリエイト検証用のLPテンプレートです。</div>
+      <div>© LP Test.（GitHub Pagesで動く静的LP）</div>
     </div>
   </footer>
 
   <script>
     // ====== アフィリンク自動付与（位置別 utm_content）======
-    // ベースURL（ユーザー指定）
     const BASE_AFF_URL = "https://www.kame.co.jp/lp-service01/ac10/";
-
-    // 共通UTM（必要ならここだけ調整）
     const UTM = {
       utm_source: "affiliate",
       utm_medium: "lp",
@@ -544,7 +704,6 @@
 
     function buildUrl(base, contentLabel){
       const u = new URL(base);
-      // 既存パラメータがあっても上書きしない（必要なら上書きに変更可）
       Object.entries(UTM).forEach(([k,v])=>{
         if(!u.searchParams.has(k)) u.searchParams.set(k, v);
       });
@@ -552,7 +711,6 @@
       return u.toString();
     }
 
-    // CTAリンクにhrefをセット
     document.querySelectorAll('a.js-aff').forEach(a=>{
       const label = a.getAttribute('data-cta') || "unknown";
       a.setAttribute('href', buildUrl(BASE_AFF_URL, label));
@@ -560,12 +718,18 @@
       a.setAttribute('target', '_blank');
     });
 
-    // ====== クリック計測（超簡易）======
-    // いまは console に出すだけ。GA4入れるならここでイベント送信。
-    document.querySelectorAll('[data-cta]').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        const label = el.getAttribute('data-cta');
-        console.log('[CTA]', label);
+    // ===== Tabs =====
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('[data-panel]');
+    tabs.forEach(t=>{
+      t.addEventListener('click', ()=>{
+        const id = t.getAttribute('data-tab');
+        tabs.forEach(x=>x.classList.remove('active'));
+        t.classList.add('active');
+        tabs.forEach(x=>x.setAttribute('aria-selected', x===t ? 'true':'false'));
+        panels.forEach(p=>{
+          p.style.display = (p.getAttribute('data-panel') === id) ? '' : 'none';
+        });
       });
     });
   </script>
