@@ -3,735 +3,1315 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>中学受験｜学研ブランドの家庭教師（対面×オンライン）</title>
-  <meta name="description" content="中学受験の不安を個別最適で解決。学研ブランドの信頼と、対面×オンラインの柔軟さ。不登校・発達特性にも対応。無料学習相談はこちら。" />
-
-  <meta property="og:title" content="中学受験｜学研ブランドの家庭教師（対面×オンライン）" />
-  <meta property="og:description" content="合格可能性を最大化する“個別最適”。無料学習相談（約1分）" />
+  <title>家庭教師サービス｜お子さまの可能性を、一対一で伸ばす</title>
+  <meta name="description" content="「塾で伸びない」「勉強への自信をなくしている」——そんなお悩みを、完全マンツーマンの家庭教師が解決。無料体験授業実施中。" />
+  <meta property="og:title" content="家庭教師サービス｜お子さまの可能性を、一対一で伸ばす" />
+  <meta property="og:description" content="完全マンツーマン・個別カリキュラムの家庭教師。無料体験授業受付中。" />
   <meta property="og:type" content="website" />
 
   <style>
-    :root{
-      /* kameっぽい：白＋濃紺＋黄（差し色） */
-      --ink:#0c1b2a;
-      --ink2:#17324c;
-      --muted:#5b6b7a;
-      --line:#e6ebf1;
-      --bg:#ffffff;
-      --soft:#f6f8fb;
-      --card:#ffffff;
-      --shadow: 0 10px 28px rgba(12,27,42,.10);
+    /* ===== Design Tokens ===== */
+    :root {
+      --c-primary:   #1a3a5c;   /* ディープネイビー */
+      --c-primary2:  #254e78;
+      --c-accent:    #f0a500;   /* ゴールド */
+      --c-accent2:   #d48f00;
+      --c-text:      #1a1a2e;
+      --c-muted:     #5e6878;
+      --c-bg:        #ffffff;
+      --c-soft:      #f4f7fb;
+      --c-border:    #dde4ed;
+      --c-white:     #ffffff;
 
-      --accent:#ffd24d;     /* CTA帯の黄色 */
-      --accent2:#ffb000;    /* CTAボタンの濃い黄 */
-      --navy:#0b1f3a;
-      --navy2:#12325a;
+      --shadow-sm:   0 2px 8px rgba(26,58,92,.08);
+      --shadow-md:   0 8px 24px rgba(26,58,92,.12);
+      --shadow-lg:   0 16px 48px rgba(26,58,92,.16);
 
-      --radius:16px;
-      --radius2:22px;
-      --max: 1120px;
-    }
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 24px;
+      --r-pill: 999px;
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-        "Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",sans-serif;
-      color:var(--ink);
-      background:var(--bg);
-      line-height:1.75;
-      letter-spacing:.01em;
-    }
-    a{color:inherit}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-
-    /* ===== Header (kameっぽい：上部に電話/問い合わせ感) ===== */
-    .topbar{
-      position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.88);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .topbar-inner{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:12px 0;
-    }
-    .logo{
-      display:flex;align-items:center;gap:10px;
-      font-weight:900;
-      letter-spacing:.02em;
-    }
-    .logo-badge{
-      font-size:12px;
-      padding:4px 10px;border-radius:999px;
-      border:1px solid rgba(11,31,58,.18);
-      background:rgba(11,31,58,.06);
-      color:var(--navy);
-      white-space:nowrap;
-    }
-    .righttools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .phone{
-      display:flex;align-items:center;gap:8px;
-      font-weight:900;
-      color:var(--ink2);
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .phone svg{width:16px;height:16px;opacity:.8}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 16px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      background: linear-gradient(180deg, var(--navy2), var(--navy));
-      box-shadow: 0 12px 26px rgba(11,31,58,.20);
-      transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 16px 30px rgba(11,31,58,.24)}
-    .btn:active{transform:translateY(0);opacity:.93}
-    .btn.light{
-      background:#fff;color:var(--navy);
-      border:1px solid rgba(11,31,58,.20);
-      box-shadow:none;
+      --max: 1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+              "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
     }
 
-    /* ===== Hero (kameっぽい：大きいコピー＋短いサブ) ===== */
-    .hero{
-      position:relative;
-      padding:44px 0 26px;
-      overflow:hidden;
-      border-bottom:1px solid var(--line);
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ===== Utility ===== */
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700;
+      padding: 4px 12px; border-radius: var(--r-pill);
+      background: rgba(240,165,0,.15);
+      color: #9a6a00;
+      border: 1px solid rgba(240,165,0,.30);
+    }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 800;
+      color: var(--c-primary); letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 32px; height: 3px;
+      background: var(--c-accent);
+      border-radius: 2px;
+    }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(26px, 3.6vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: var(--c-text);
+    }
+    .section-lead {
+      margin: 0 0 40px;
+      color: var(--c-muted);
+      font-size: 16px;
+      max-width: 560px;
+    }
+
+    /* ===== Buttons ===== */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px 28px;
+      background: linear-gradient(135deg, var(--c-accent), var(--c-accent2));
+      color: #1a0e00;
+      font-weight: 900; font-size: 15px;
+      border-radius: var(--r-pill);
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(240,165,0,.35);
+      transition: transform .12s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(240,165,0,.40); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px;
+      background: transparent;
+      color: var(--c-primary);
+      font-weight: 800; font-size: 14px;
+      border-radius: var(--r-pill);
+      border: 2px solid rgba(26,58,92,.25);
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover { border-color: var(--c-primary); background: rgba(26,58,92,.04); }
+
+    /* ===== Header ===== */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: var(--r-sm);
+      background: linear-gradient(135deg, var(--c-primary), var(--c-primary2));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 22px; height: 22px; fill: #fff; }
+    .logo-text {
+      font-weight: 900; font-size: 17px;
+      color: var(--c-primary); letter-spacing: -.01em;
+      line-height: 1.15;
+    }
+    .logo-text small {
+      display: block; font-size: 11px; font-weight: 700;
+      color: var(--c-muted); letter-spacing: .02em;
+    }
+    .header-nav {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 64px 0 56px;
       background:
-        radial-gradient(900px 420px at 15% 10%, rgba(255,210,77,.30), transparent 55%),
-        radial-gradient(900px 520px at 85% 0%, rgba(18,50,90,.12), transparent 60%),
-        linear-gradient(180deg, #ffffff, #fbfcfe);
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(26,58,92,.06), transparent),
+        radial-gradient(ellipse 60% 80% at 0% 100%, rgba(240,165,0,.08), transparent),
+        var(--c-bg);
+      border-bottom: 1px solid var(--c-border);
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      align-items: center;
     }
-    .eyebrow{
-      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-      font-weight:900;color:var(--ink2);
-      margin:0 0 10px;
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 20px;
     }
-    .eyebrow .dot{width:10px;height:10px;border-radius:99px;background:var(--accent2)}
-    h1{
-      margin:0 0 12px;
-      font-size: clamp(30px, 4.2vw, 52px);
-      line-height:1.12;
-      letter-spacing:-.02em;
-      font-weight:1000;
+    .hero-h1 {
+      margin: 0 0 20px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      font-weight: 900;
     }
-    .hero-sub{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:16px;
-      max-width: 44em;
+    .hero-h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--c-primary), #3a7bd5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .hero-sub strong{color:var(--ink2)}
-    .note-mini{
-      font-size:12px;color:var(--muted);
-      margin-top:10px;
-      padding:10px 12px;
-      border-left:3px solid rgba(255,178,0,.55);
-      background: rgba(255,210,77,.16);
-      border-radius: 12px;
+    .hero-desc {
+      margin: 0 0 28px;
+      font-size: 16px;
+      color: var(--c-muted);
+      line-height: 1.85;
+      max-width: 480px;
+    }
+    .hero-cta-group {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 12px; color: var(--c-muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .hero-note::before {
+      content: '✓';
+      color: #27ae60; font-weight: 900;
     }
 
-    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-    .pill{
-      font-size:13px;
-      padding:7px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--ink2);
-      font-weight:800;
+    /* Hero Visual Card */
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card-main {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card-main::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--c-primary), #3a7bd5, var(--c-accent));
+    }
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-bottom: 20px;
+    }
+    .stat {
+      background: var(--c-soft);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 24px; font-weight: 900;
+      color: var(--c-primary);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .stat-num span { font-size: 14px; font-weight: 700; }
+    .stat-lbl {
+      font-size: 11px; font-weight: 700;
+      color: var(--c-muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .check-list {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; gap: 10px;
+    }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; font-weight: 700;
+      color: var(--c-text);
+    }
+    .check-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8l3 3 5-6' stroke='white' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 14px;
+      background-color: #27ae60;
+      margin-top: 1px;
+    }
+    .hero-action-mini {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--c-border);
     }
 
-    .hero-card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex;flex-direction:column;gap:12px;
+    /* ===== Trust bar ===== */
+    .trust-bar {
+      padding: 20px 0;
+      background: var(--c-soft);
+      border-bottom: 1px solid var(--c-border);
     }
-    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .kpi{
-      border-radius:14px;
-      border:1px solid rgba(12,27,42,.12);
-      background: linear-gradient(180deg, rgba(12,27,42,.06), rgba(12,27,42,.02));
-      padding:12px;
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
     }
-    .kpi .num{font-weight:1000;font-size:22px;color:var(--ink2);letter-spacing:-.02em}
-    .kpi .lbl{font-size:12px;color:var(--muted);margin-top:2px}
-    .list{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 800;
+      color: var(--c-primary);
+    }
+    .trust-item svg {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      color: var(--c-accent);
+    }
 
-    /* ===== CTA band (kameっぽい：黄色の帯＋“◯分”強調) ===== */
-    .cta-band{
-      margin-top:18px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(255,178,0,.35);
-      background: linear-gradient(180deg, rgba(255,210,77,.55), rgba(255,210,77,.30));
-      padding:16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+    /* ===== Problems ===== */
+    .problems {
+      padding: 80px 0;
     }
-    .cta-band h3{
-      margin:0;
-      font-size:18px;
-      line-height:1.2;
-      letter-spacing:-.01em;
-      font-weight:1000;
-      color:var(--ink2);
+    .prob-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
-    .cta-band .small{
-      margin:2px 0 0;
-      font-size:12.5px;color:rgba(12,27,42,.78);
-      font-weight:800;
+    .prob-card {
+      display: flex; gap: 16px;
+      padding: 20px;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      background: var(--c-white);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s;
     }
-    .btn-accent{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 16px;border-radius:999px;
-      font-weight:1000;
-      text-decoration:none;
-      color:#2a1a00;
-      background: linear-gradient(180deg, #ffd24d, #ffb000);
-      border:1px solid rgba(120,70,0,.20);
-      box-shadow: 0 10px 18px rgba(255,178,0,.20);
-      white-space:nowrap;
-      transition: transform .08s ease, opacity .2s ease;
+    .prob-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
-    .btn-accent:hover{transform:translateY(-1px)}
-    .btn-accent:active{transform:translateY(0);opacity:.93}
+    .prob-icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: rgba(26,58,92,.08);
+      border: 1px solid rgba(26,58,92,.14);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prob-icon svg { width: 22px; height: 22px; color: var(--c-primary); }
+    .prob-body h3 {
+      margin: 0 0 6px;
+      font-size: 15px; font-weight: 900;
+      color: var(--c-text);
+    }
+    .prob-body p { margin: 0; font-size: 13px; color: var(--c-muted); line-height: 1.65; }
 
-    /* ===== Sections ===== */
-    .section{padding:54px 0}
-    .section.soft{background:var(--soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-    .title{
-      margin:0 0 10px;
-      font-size: clamp(24px, 3.2vw, 34px);
-      line-height:1.2;
-      letter-spacing:-.01em;
-      font-weight:1000;
+    .prob-bridge {
+      margin-top: 48px;
+      padding: 28px;
+      background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary2) 100%);
+      border-radius: var(--r-lg);
+      color: #fff;
+      text-align: center;
     }
-    .lead{margin:0 0 18px;color:var(--muted)}
-    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding:16px;
+    .prob-bridge h3 {
+      margin: 0 0 8px;
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 900;
+      letter-spacing: -.01em;
     }
-    .minihead{
-      display:flex;align-items:center;gap:10px;
-      margin:0 0 6px;
-      font-weight:1000;
-      color:var(--ink2);
-    }
-    .miniicon{
-      width:28px;height:28px;border-radius:10px;
-      background: rgba(18,50,90,.08);
-      border:1px solid rgba(18,50,90,.14);
-      display:flex;align-items:center;justify-content:center;
-    }
-    .miniicon svg{width:16px;height:16px;opacity:.85}
-    .muted{color:var(--muted);font-size:14px;margin:0}
+    .prob-bridge p { margin: 0 0 20px; font-size: 14px; opacity: .85; }
 
-    /* ===== Tabs (声) ===== */
-    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 14px}
-    .tab{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:999px;
-      padding:8px 12px;
-      font-weight:1000;
-      color:var(--ink2);
-      cursor:pointer;
-      user-select:none;
-      font-size:13px;
+    /* ===== Features ===== */
+    .features {
+      padding: 80px 0;
+      background: var(--c-soft);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
     }
-    .tab.active{
-      background: rgba(255,210,77,.36);
-      border-color: rgba(255,178,0,.35);
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .voices{display:grid;gap:12px}
-    .voice{
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background:#fff;
-      padding:16px;
+    .feature-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s;
     }
-    .voice .who{
-      font-weight:1000;color:var(--ink2);
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      margin-bottom:6px;
+    .feature-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
     }
-    .voice .tag{
-      font-size:12px;color:rgba(12,27,42,.78);
-      background: rgba(12,27,42,.06);
-      border:1px solid rgba(12,27,42,.10);
-      padding:4px 10px;border-radius:999px;
-      white-space:nowrap;
+    .feature-num {
+      font-size: 12px; font-weight: 900;
+      color: var(--c-accent2); letter-spacing: .08em;
+      margin-bottom: 14px;
     }
-    .voice p{margin:0;color:var(--muted);font-size:14px}
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, rgba(26,58,92,.1), rgba(26,58,92,.05));
+      border: 1px solid rgba(26,58,92,.14);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .feature-icon svg { width: 26px; height: 26px; color: var(--c-primary); }
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 17px; font-weight: 900;
+      color: var(--c-text);
+      line-height: 1.3;
+    }
+    .feature-card p { margin: 0; font-size: 14px; color: var(--c-muted); line-height: 1.75; }
 
-    /* ===== “合格実績っぽい”ロゴグリッド（ダミー） ===== */
-    .logo-grid{
-      display:grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap:10px;
-      margin-top:14px;
+    /* ===== Flow ===== */
+    .flow {
+      padding: 80px 0;
     }
-    .logo-chip{
-      border:1px dashed rgba(12,27,42,.22);
-      border-radius: 14px;
-      background:#fff;
-      padding:12px 8px;
-      text-align:center;
-      font-weight:1000;
-      color:rgba(12,27,42,.62);
-      font-size:12px;
-      line-height:1.1;
-      min-height:56px;
-      display:flex;align-items:center;justify-content:center;
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
     }
-    .logo-note{font-size:12px;color:var(--muted);margin-top:10px}
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: calc(12.5%);
+      width: 75%; height: 2px;
+      background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-accent) 100%);
+      z-index: 0;
+    }
+    .flow-step {
+      text-align: center;
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--c-primary), var(--c-primary2));
+      color: #fff;
+      font-size: 18px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 16px rgba(26,58,92,.28);
+      border: 3px solid #fff;
+    }
+    .flow-step h3 {
+      margin: 0 0 8px;
+      font-size: 15px; font-weight: 900;
+      color: var(--c-text);
+    }
+    .flow-step p { margin: 0; font-size: 13px; color: var(--c-muted); line-height: 1.65; }
 
-    /* ===== “5つの強み” kameっぽい縦並び ===== */
-    .strengths{display:grid;gap:12px;margin-top:14px}
-    .strength{
-      display:grid;
-      grid-template-columns: 110px 1fr;
-      gap:14px;
-      padding:16px;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: var(--radius2);
+    /* ===== Voices ===== */
+    .voices {
+      padding: 80px 0;
+      background: var(--c-soft);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
     }
-    .strength .badgeBig{
-      border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,210,77,.55), rgba(255,210,77,.22));
-      border:1px solid rgba(255,178,0,.28);
-      padding:14px;
-      display:flex;align-items:center;justify-content:center;
-      font-weight:1000;
-      color:var(--ink2);
-      text-align:center;
-      line-height:1.15;
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .strength h3{margin:0 0 6px;font-size:16px;font-weight:1000;color:var(--ink2)}
-    .strength p{margin:0;color:var(--muted);font-size:14px}
+    .voice-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .voice-header {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .voice-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--c-primary), #3a7bd5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+      color: #fff; font-weight: 900;
+    }
+    .voice-who strong { display: block; font-size: 14px; font-weight: 900; color: var(--c-text); }
+    .voice-who span { font-size: 12px; color: var(--c-muted); }
+    .voice-stars {
+      display: flex; gap: 2px;
+    }
+    .voice-stars span { font-size: 14px; color: var(--c-accent); }
+    .voice-text { margin: 0; font-size: 14px; color: var(--c-muted); line-height: 1.75; }
+    .voice-tag {
+      display: inline-flex;
+      font-size: 11px; font-weight: 800;
+      padding: 3px 10px; border-radius: var(--r-pill);
+      background: rgba(26,58,92,.07);
+      color: var(--c-primary2);
+      border: 1px solid rgba(26,58,92,.12);
+    }
 
     /* ===== FAQ ===== */
-    details{
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background:#fff;
+    .faq {
+      padding: 80px 0;
+    }
+    .faq-list {
+      display: grid; gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      background: var(--c-white);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 900; font-size: 15px;
+      color: var(--c-text);
+      list-style: none;
+      transition: background .15s;
+    }
+    .faq-q:hover { background: var(--c-soft); }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q-mark {
+      flex-shrink: 0;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--c-primary);
+      color: #fff;
+      font-size: 13px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .faq-a {
+      padding: 0 20px 18px 62px;
+      font-size: 14px; color: var(--c-muted);
+      line-height: 1.8;
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary2) 60%, #1e3f6e 100%);
+    }
+    .cta-inner {
+      text-align: center;
+    }
+    .cta-inner .section-label {
+      justify-content: center;
+      color: rgba(255,255,255,.7);
+    }
+    .cta-inner .section-label::before {
+      background: var(--c-accent);
+    }
+    .cta-inner h2 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+    .cta-inner p {
+      margin: 0 0 36px;
+      font-size: 16px;
+      color: rgba(255,255,255,.75);
+    }
+    .cta-box {
+      display: inline-block;
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: 36px 48px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.2);
+      text-align: left;
+      max-width: 560px;
+      width: 100%;
+    }
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: 20px; font-weight: 900;
+      color: var(--c-text);
+    }
+    .cta-box p {
+      margin: 0 0 24px;
+      font-size: 14px; color: var(--c-muted);
+    }
+    .cta-form {
+      display: grid; gap: 12px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 13px; font-weight: 800; color: var(--c-text); }
+    .form-group input, .form-group select {
       padding: 12px 14px;
+      border: 1.5px solid var(--c-border);
+      border-radius: var(--r-sm);
+      font-size: 14px; font-family: var(--font);
+      color: var(--c-text);
+      background: var(--c-white);
+      outline: none;
+      transition: border-color .2s;
     }
-    summary{
-      cursor:pointer;
-      font-weight:1000;
-      color: var(--ink2);
-      list-style:none;
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--c-primary);
     }
-    summary::-webkit-details-marker{display:none}
-    details p{margin:10px 0 0;color:var(--muted);font-size:14px}
+    .form-submit {
+      margin-top: 4px;
+    }
+    .form-submit .btn-primary { width: 100%; font-size: 16px; padding: 18px; }
+    .form-note { font-size: 12px; color: var(--c-muted); margin-top: 8px; text-align: center; }
 
-    .footer{
-      padding:18px 0;
-      border-top:1px solid var(--line);
-      color: var(--muted);
-      font-size:12px;
-      background:#fff;
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--c-primary);
+      color: rgba(255,255,255,.7);
+      padding: 48px 0 24px;
     }
-    code{background:rgba(12,27,42,.06);padding:1px 6px;border-radius:8px}
+    .footer-top {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      margin-bottom: 24px;
+    }
+    .footer-brand .logo-mark {
+      background: rgba(255,255,255,.15);
+      margin-bottom: 12px;
+    }
+    .footer-brand .logo-text { color: #fff; }
+    .footer-brand .logo-text small { color: rgba(255,255,255,.6); }
+    .footer-brand p { font-size: 13px; margin: 12px 0 0; line-height: 1.75; }
+    .footer-col h4 {
+      color: #fff; font-size: 14px; font-weight: 900;
+      margin: 0 0 14px; letter-spacing: .01em;
+    }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .footer-col ul li a { font-size: 13px; transition: color .2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 12px;
+    }
 
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;gap:14px}
-      .grid3{grid-template-columns:1fr;gap:12px}
-      .grid2{grid-template-columns:1fr;gap:12px}
-      .logo-grid{grid-template-columns: repeat(3, 1fr)}
-      .strength{grid-template-columns:1fr}
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .flow-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .flow-steps::before { display: none; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
     }
-    @media (max-width: 560px){
-      .kpis{grid-template-columns:1fr}
-      .cta-band{flex-direction:column;align-items:flex-start}
-      .righttools{justify-content:flex-end}
+    @media (max-width: 640px) {
+      .prob-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: repeat(3, 1fr); }
+      .flow-steps { grid-template-columns: 1fr; }
+      .hero { padding: 40px 0 40px; }
+      .problems, .features, .flow, .voices, .faq { padding: 60px 0; }
+      .cta-box { padding: 24px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-inner { gap: 16px; }
+      .header-nav .btn-outline { display: none; }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container">
-      <div class="topbar-inner">
-        <div class="logo">
-          <span>学研ブランドの家庭教師</span>
-          <span class="logo-badge">中学受験</span>
-        </div>
 
-        <div class="righttools">
-          <div class="phone" aria-label="電話番号（ダミー表示）">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M8 3h8v18H8V3Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M10 18h4" stroke="currentColor" stroke-width="2"/>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="wrap">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3L4 7v10l8 4 8-4V7L12 3z" fill="none" stroke="white" stroke-width="1.8"/>
+              <path d="M12 7v10M8 9l4-2 4 2" stroke="white" stroke-width="1.5" fill="none"/>
             </svg>
-            <span>受付：10:00〜18:00（例）</span>
           </div>
-          <a class="btn js-aff" href="#" data-cta="top">無料学習相談（無料）</a>
-        </div>
+          <div class="logo-text">
+            <span>まなびホーム</span>
+            <small>家庭教師サービス</small>
+          </div>
+        </a>
+        <nav class="header-nav">
+          <a class="btn-outline" href="#flow">指導の流れ</a>
+          <a class="btn-primary" href="#contact">無料体験を申し込む</a>
+        </nav>
       </div>
     </div>
   </header>
 
+
+  <!-- ===== Hero ===== -->
   <section class="hero">
-    <div class="container">
+    <div class="wrap">
       <div class="hero-grid">
+
         <div>
-          <p class="eyebrow"><span class="dot"></span> 行きたいところに、行こう。中学受験の“個別最適”</p>
-          <h1>合格に直結する<br>学研ブランドの家庭教師</h1>
-          <p class="hero-sub">
-            「塾に通っているのに伸びない」「集団が合わない」「不登校・発達特性が心配」——<br>
-            中学受験は、努力量よりも<strong>戦略と設計</strong>で差がつきます。
+          <div class="hero-eyebrow">
+            <span class="badge">完全マンツーマン指導</span>
+            <span class="badge">無料体験授業あり</span>
+          </div>
+
+          <h1 class="hero-h1">
+            お子さまの<br>
+            <em>「わかった！」</em>を、<br>
+            一緒につくります。
+          </h1>
+
+          <p class="hero-desc">
+            「塾に行かせているのに成績が上がらない」「勉強が嫌いになってしまった」——そんな悩みに、完全マンツーマンの家庭教師が向き合います。お子さまのペースに合わせた個別カリキュラムで、確実に前へ進みます。
           </p>
 
-          <div class="pillrow">
-            <span class="pill">進路決定率 98.8%</span>
-            <span class="pill">満足度 98%</span>
-            <span class="pill">対面×オンライン併用</span>
-            <span class="pill">海外在住も対応</span>
+          <div class="hero-cta-group">
+            <a class="btn-primary" href="#contact">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="2"/>
+              </svg>
+              無料体験授業を申し込む
+            </a>
+            <a class="btn-outline" href="#voices">先輩の声を見る</a>
           </div>
 
-          <div class="cta-band" role="region" aria-label="資料請求CTA帯">
-            <div>
-              <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
-              <div class="small">※入力はかんたん。状況整理だけでもOK。</div>
+          <p class="hero-note">入会費・体験料 すべて無料。まずは気軽にご相談ください。</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-num">98<span>%</span></div>
+                <div class="stat-lbl">保護者<br>満足度</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">3<span>ヶ月</span></div>
+                <div class="stat-lbl">成績向上<br>平均期間</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">15<span>年</span></div>
+                <div class="stat-lbl">指導<br>実績</div>
+              </div>
             </div>
-            <a class="btn-accent js-aff" href="#" data-cta="fv">無料学習相談をはじめる</a>
-          </div>
 
-          <div class="note-mini">
-            ※数値は訴求用の記載例です。表現・数値・対応範囲は必ず広告主の最新情報をご確認ください。
-          </div>
-        </div>
+            <ul class="check-list">
+              <li>志望校・目標から逆算した個別カリキュラム</li>
+              <li>相性ぴったりの講師をご紹介（交代も無料）</li>
+              <li>対面・オンライン どちらでも受講可能</li>
+              <li>苦手科目のさかのぼり学習にも対応</li>
+              <li>中学受験・高校受験・大学受験すべて対応</li>
+            </ul>
 
-        <aside class="hero-card">
-          <div style="font-weight:1000;color:var(--ink2);font-size:16px">“安心感”が伝わるポイント</div>
-          <div class="kpis">
-            <div class="kpi"><div class="num">98.8%</div><div class="lbl">進路決定率（訴求）</div></div>
-            <div class="kpi"><div class="num">98%</div><div class="lbl">満足度（訴求）</div></div>
-          </div>
-          <ul class="list">
-            <li>専任スタッフ×講師で学習を設計</li>
-            <li>不登校・発達特性にも対応（相談可）</li>
-            <li>対面/オンラインのハイブリッド</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn js-aff" href="#" data-cta="side">無料学習相談へ</a>
-            <a class="btn light" href="#voices" data-cta="read">声を見る</a>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- 声（kameっぽいタブ） -->
-  <section class="section" id="voices">
-    <div class="container">
-      <h2 class="title">生徒・保護者の声</h2>
-      <p class="lead">“学研にしてよかった”という声が増えています（構成は参考・文章は例）。</p>
-
-      <div class="tabs" role="tablist" aria-label="声のタブ">
-        <div class="tab active" role="tab" aria-selected="true" data-tab="tab1">中学受験（小4〜小6）</div>
-        <div class="tab" role="tab" aria-selected="false" data-tab="tab2">保護者</div>
-        <div class="tab" role="tab" aria-selected="false" data-tab="tab3">不登校・発達特性</div>
-      </div>
-
-      <div class="voices">
-        <div class="voice" data-panel="tab1">
-          <div class="who"><span>小学6年・保護者（例）</span><span class="tag">塾→家庭教師へ</span></div>
-          <p>集団塾では復習が追いつかず、苦手が積み上がっていました。家庭教師で「戻り学習→演習→定着」の順番がはっきりし、半年で安定して得点できるように。</p>
-        </div>
-        <div class="voice" data-panel="tab1">
-          <div class="who"><span>小学5年・生徒（例）</span><span class="tag">算数が苦手</span></div>
-          <p>解き方だけじゃなく、どこで間違えやすいかを教えてくれて、宿題も「これだけやればOK」になったのがよかったです。</p>
-        </div>
-
-        <div class="voice" data-panel="tab2" style="display:none">
-          <div class="who"><span>保護者（例）</span><span class="tag">学習管理が助かった</span></div>
-          <p>「何を、いつまでに」を週単位で決めてもらえ、家庭内の声かけがラクになりました。成績だけでなく、取り組み方が変化。</p>
-        </div>
-        <div class="voice" data-panel="tab2" style="display:none">
-          <div class="who"><span>保護者（例）</span><span class="tag">相談しやすい</span></div>
-          <p>不安点を相談すると、方針を言語化してくれるので安心できました。講師の変更相談もしやすいのが良かったです。</p>
-        </div>
-
-        <div class="voice" data-panel="tab3" style="display:none">
-          <div class="who"><span>保護者（例）</span><span class="tag">ペース設計</span></div>
-          <p>無理に競争に乗せず、本人の集中できる時間に合わせて設計。成功体験が増えると学習への抵抗感が減りました。</p>
-        </div>
-        <div class="voice" data-panel="tab3" style="display:none">
-          <div class="who"><span>生徒（例）</span><span class="tag">オンライン併用</span></div>
-          <p>対面がしんどい時はオンラインに切り替えられるのが安心。続けやすいのが良かったです。</p>
-        </div>
-      </div>
-
-      <div style="margin-top:18px">
-        <div class="cta-band">
-          <div>
-            <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
-            <div class="small">悩みを整理して、次にやることを明確に。</div>
-          </div>
-          <a class="btn-accent js-aff" href="#" data-cta="mid">無料学習相談を申し込む</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 合格実績っぽい -->
-  <section class="section soft" id="results">
-    <div class="container">
-      <h2 class="title">合格実績（見せ方の参考）</h2>
-      <p class="lead">ロゴを並べるだけで“規模感”が伝わります（ここはダミー表示。実運用では広告主の許諾・表記ルールに合わせてください）。</p>
-
-      <div class="logo-grid" aria-label="合格実績ロゴ（ダミー）">
-        <div class="logo-chip">難関校A</div><div class="logo-chip">難関校B</div><div class="logo-chip">難関校C</div>
-        <div class="logo-chip">附属校D</div><div class="logo-chip">附属校E</div><div class="logo-chip">人気校F</div>
-        <div class="logo-chip">中高一貫G</div><div class="logo-chip">中高一貫H</div><div class="logo-chip">中高一貫I</div>
-        <div class="logo-chip">地域上位J</div><div class="logo-chip">地域上位K</div><div class="logo-chip">地域上位L</div>
-      </div>
-      <div class="logo-note">※実績表記は「年度」「範囲」「出典」など、広告主のガイドに必ず準拠してください。</div>
-    </div>
-  </section>
-
-  <!-- 悩み -->
-  <section class="section" id="problems">
-    <div class="container">
-      <h2 class="title">中学受験、こんなお悩みありませんか？</h2>
-      <p class="lead">それもそのはず。中学受験は「情報量」と「優先順位」で迷いやすいからです。</p>
-
-      <div class="grid2">
-        <div class="card">
-          <div class="minihead">
-            <div class="miniicon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V6l8-3 8 3v14" stroke="currentColor" stroke-width="2"/><path d="M9 22v-8h6v8" stroke="currentColor" stroke-width="2"/></svg>
+            <div class="hero-action-mini">
+              <a class="btn-primary" href="#contact" style="width:100%;font-size:14px;padding:14px;">
+                まず無料体験から始める →
+              </a>
             </div>
-            <div>塾に通っているのに伸びない</div>
           </div>
-          <p class="muted">「授業は受けた」けど「復習の設計」が曖昧になりがち。</p>
         </div>
 
-        <div class="card">
-          <div class="minihead">
-            <div class="miniicon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4V4Z" stroke="currentColor" stroke-width="2"/><path d="M7 20h10" stroke="currentColor" stroke-width="2"/></svg>
-            </div>
-            <div>何から始めればいいか分からない</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Trust Bar ===== -->
+  <div class="trust-bar">
+    <div class="wrap">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          信頼の指導実績 15年
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          登録講師 500名以上
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+          対応可能エリア 全国
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/>
+            <path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+          </svg>
+          保護者満足度 98%
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          最短1週間でスタート
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Problems ===== -->
+  <section class="problems" id="problems">
+    <div class="wrap">
+      <div class="section-label">お悩みはありませんか？</div>
+      <h2 class="section-title">こんなお悩み、<br>抱えていませんか？</h2>
+      <p class="section-lead">多くのご家庭からこのようなご相談をいただきます。一人で悩まず、まずはご相談ください。</p>
+
+      <div class="prob-grid">
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
           </div>
-          <p class="muted">志望校から逆算できると、今日やるべきことが見えます。</p>
+          <div class="prob-body">
+            <h3>塾に通っているのに成績が上がらない</h3>
+            <p>集団授業のペースについていけず、わからないまま進んでしまう。授業料を払っているのに効果が見えない。</p>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="minihead">
-            <div class="miniicon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="2"/><path d="M5 9h14" stroke="currentColor" stroke-width="2"/><path d="M7 21h10" stroke="currentColor" stroke-width="2"/></svg>
-            </div>
-            <div>集団授業が合わない</div>
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+            </svg>
           </div>
-          <p class="muted">理解の穴が残るほど、後半で一気に苦しくなります。</p>
+          <div class="prob-body">
+            <h3>何から手をつければいいかわからない</h3>
+            <p>科目ごとの優先順位、スケジュールの立て方、教材選び……親も子も迷ってしまう。</p>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="minihead">
-            <div class="miniicon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10Z" stroke="currentColor" stroke-width="2"/></svg>
-            </div>
-            <div>不登校・発達特性で不安</div>
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
           </div>
-          <p class="muted">ペース設計と成功体験の積み上げが重要です。</p>
+          <div class="prob-body">
+            <h3>子どもが勉強嫌いになってしまった</h3>
+            <p>叱っても逆効果。自信をなくしてしまい、机に向かうのも嫌がるようになってしまった。</p>
+          </div>
+        </div>
+
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="prob-body">
+            <h3>子どもに合う先生が見つからない</h3>
+            <p>相性の合わない先生では効果が出にくい。でも先生を変えるのが申し訳なくて言い出せない。</p>
+          </div>
+        </div>
+
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="prob-body">
+            <h3>受験本番まで時間がない</h3>
+            <p>試験日まで残り少ない中で、どこに絞って勉強すれば合格に近づけるのか見えない。</p>
+          </div>
+        </div>
+
+        <div class="prob-card">
+          <div class="prob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="prob-body">
+            <h3>共働きで学習サポートに手が回らない</h3>
+            <p>仕事で忙しく、宿題を見てあげる時間がない。子どもの進捗がわからず不安が募る。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prob-bridge">
+        <h3>そのお悩み、家庭教師が解決できます</h3>
+        <p>完全マンツーマンだから、お子さま一人ひとりの課題と目標に完全フィット。<br>まずは無料体験で、変化を実感してください。</p>
+        <a class="btn-primary" href="#contact" style="background:linear-gradient(135deg,#f0a500,#d48f00);">
+          無料体験を予約する（0円）
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Features ===== -->
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="section-label">選ばれる理由</div>
+      <h2 class="section-title">まなびホームが<br>選ばれる6つの理由</h2>
+      <p class="section-lead">ただ教えるだけではなく、お子さまが「自ら学ぶ力」を身につけるまでサポートします。</p>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 01</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <h3>完全オーダーメイドの<br>個別カリキュラム</h3>
+          <p>市販の教材に合わせるのではなく、志望校・現在の学力・得意不得意をもとに、お子さまだけの学習計画を作成します。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 02</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>相性重視の<br>講師マッチング</h3>
+          <p>500名以上の登録講師の中から、性格・得意科目・指導スタイルを考慮してご紹介。合わなければ無料で何度でも交代できます。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 03</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>対面・オンライン<br>自由に選べる</h3>
+          <p>ご自宅への訪問指導も、ZoomやGoogle Meetでのオンライン指導も対応。体調や部活の状況に合わせて柔軟に切り替えできます。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 04</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3>毎月の進捗レポートで<br>「見える化」</h3>
+          <p>指導内容・理解度・次回の目標を毎回記録。保護者の方が忙しくても、お子さまの状況をしっかり把握できます。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 05</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87a16 16 0 0 0 6.13 6.13l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/>
+            </svg>
+          </div>
+          <h3>専任スタッフによる<br>手厚いサポート</h3>
+          <p>担当スタッフが随時相談を受け付けます。「勉強以外の悩みも話せる」と保護者様から好評の体制です。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">REASON 06</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3>実績豊富な<br>受験指導</h3>
+          <p>中学受験・高校受験・大学受験すべてに対応。難関校への合格実績と、お子さまの「第一志望合格」に向けた戦略的指導が強みです。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Flow ===== -->
+  <section class="flow" id="flow">
+    <div class="wrap">
+      <div class="section-label">入会までの流れ</div>
+      <h2 class="section-title">最短1週間で<br>指導スタートできます</h2>
+      <p class="section-lead">お申し込みから指導開始まで、担当スタッフが丁寧にサポートします。</p>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-circle">1</div>
+          <h3>無料体験を申し込む</h3>
+          <p>フォームから30秒で申し込み完了。電話・LINEでも受け付けています。</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-circle">2</div>
+          <h3>現状ヒアリング</h3>
+          <p>お子さまの学力・目標・生活スタイルをお聞きし、最適なプランをご提案します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-circle">3</div>
+          <h3>講師マッチング</h3>
+          <p>相性やご要望をもとに、500名以上の登録講師からぴったりの講師をご紹介します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-circle">4</div>
+          <h3>指導スタート！</h3>
+          <p>無料体験後にご満足いただければ、そのまま継続できます。もちろん断りも自由。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5つの強み（kame風） -->
-  <section class="section soft" id="strengths">
-    <div class="container">
-      <h2 class="title">悩みを解決する “5つの強み”</h2>
-      <p class="lead">「家庭教師なんてどこも同じ」ではありません。学研ブランド×個別最適だからできる強みがあります。</p>
 
-      <div class="strengths">
-        <div class="strength">
-          <div class="badgeBig">強み<br>1</div>
-          <div>
-            <h3>学研ブランドの圧倒的信頼性</h3>
-            <p>保護者の安心感を高め、行動（問い合わせ）を後押し。サービス選びの不安を最初に減らします。</p>
+  <!-- ===== Voices ===== -->
+  <section class="voices" id="voices">
+    <div class="wrap">
+      <div class="section-label">お客様の声</div>
+      <h2 class="section-title">通ってよかった、<br>という声が続いています</h2>
+      <p class="section-lead">生徒さん・保護者の方から届いたリアルな声をご紹介します。</p>
+
+      <div class="voice-grid">
+
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar">T</div>
+            <div class="voice-who">
+              <strong>中学3年生（T.Kさん）</strong>
+              <span>高校受験対策</span>
+            </div>
           </div>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">数学が大の苦手で偏差値40台でしたが、先生がどこでつまずいているか丁寧に見てくれて、3ヶ月で58まで上がりました。志望校に合格できて本当によかったです。</p>
+          <span class="voice-tag">数学 偏差値+18</span>
         </div>
 
-        <div class="strength">
-          <div class="badgeBig">強み<br>2</div>
-          <div>
-            <h3>個別最適な“受験戦略設計”</h3>
-            <p>志望校から逆算して「何を・いつまでに」を明確化。迷いを消して、学習の質を上げます。</p>
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar" style="background:linear-gradient(135deg,#e67e22,#f39c12);">M</div>
+            <div class="voice-who">
+              <strong>保護者（M.Sさん）</strong>
+              <span>小学6年・中学受験</span>
+            </div>
           </div>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">集団塾ではなかなか質問できない性格でしたが、マンツーマンになってから積極的に質問するようになりました。第一志望の中学に合格でき、家族みんな大喜びです。</p>
+          <span class="voice-tag">第一志望合格</span>
         </div>
 
-        <div class="strength">
-          <div class="badgeBig">強み<br>3</div>
-          <div>
-            <h3>対面×オンラインのハイブリッド</h3>
-            <p>Zoomですぐ開始。体調や生活に合わせて切り替え可能。海外在住のご家庭にも対応できます。</p>
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar" style="background:linear-gradient(135deg,#27ae60,#2ecc71);">A</div>
+            <div class="voice-who">
+              <strong>高校2年生（A.Nさん）</strong>
+              <span>大学受験準備</span>
+            </div>
           </div>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">先生との相性がとても良く、勉強が嫌いだったのに、いつの間にか楽しくなっていました。苦手だった英語も読めるようになり、大学受験が楽しみになってきました。</p>
+          <span class="voice-tag">英語 苦手→得意に</span>
         </div>
 
-        <div class="strength">
-          <div class="badgeBig">強み<br>4</div>
-          <div>
-            <h3>不登校・発達特性への対応力</h3>
-            <p>競争に乗せるのではなく、本人に合うペースと成功体験を設計。続けやすさを作ります。</p>
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar" style="background:linear-gradient(135deg,#8e44ad,#9b59b6);">K</div>
+            <div class="voice-who">
+              <strong>保護者（K.Iさん）</strong>
+              <span>中学2年・学習習慣づくり</span>
+            </div>
           </div>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">進捗レポートのおかげで、仕事で忙しくても子どもの状況がよくわかります。担当スタッフさんへの相談もしやすく、親として安心感が全然違います。</p>
+          <span class="voice-tag">進捗レポートが好評</span>
         </div>
 
-        <div class="strength">
-          <div class="badgeBig">強み<br>5</div>
-          <div>
-            <h3>記事に盛り込みやすい“根拠（数字）”</h3>
-            <p>進路決定率98.8%・満足度98%など、訴求の根拠として扱いやすい要素が豊富（※表記は要確認）。</p>
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">Y</div>
+            <div class="voice-who">
+              <strong>中学1年生（Y.Hさん）</strong>
+              <span>中学入学後フォロー</span>
+            </div>
           </div>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">中学に入ってから授業が速くて全然ついていけなかったです。先生が「わかるところまで戻ろう」と言ってくれて、プレッシャーなく勉強できました。テストの点が上がってきて嬉しいです。</p>
+          <span class="voice-tag">テスト平均+20点</span>
         </div>
-      </div>
 
-      <div style="margin-top:18px">
-        <div class="cta-band">
-          <div>
-            <h3>まずは、無料学習相談から</h3>
-            <div class="small">状況整理 → 方針決定までスムーズ。</div>
+        <div class="voice-card">
+          <div class="voice-header">
+            <div class="voice-avatar" style="background:linear-gradient(135deg,#16a085,#1abc9c);">H</div>
+            <div class="voice-who">
+              <strong>保護者（H.Tさん）</strong>
+              <span>不登校・学習サポート</span>
+            </div>
           </div>
-          <a class="btn-accent js-aff" href="#" data-cta="flow">無料学習相談をする</a>
+          <div class="voice-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="voice-text">不登校で学習に遅れが生じていたのですが、オンラインでの対応と先生の温かさで、少しずつ自信を取り戻してくれました。学ぶ楽しさを思い出してくれたようです。</p>
+          <span class="voice-tag">オンライン対応</span>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 流れ -->
-  <section class="section" id="flow">
-    <div class="container">
-      <h2 class="title">無料学習相談〜開始までの流れ</h2>
-      <p class="lead">迷わせない3ステップ。まずは状況整理だけでもOK。</p>
 
-      <div class="grid3">
-        <div class="card">
-          <div class="minihead"><div class="miniicon">1</div><div>無料学習相談</div></div>
-          <p class="muted">学年・志望校・いまの状況を共有（ざっくりでOK）。</p>
-        </div>
-        <div class="card">
-          <div class="minihead"><div class="miniicon">2</div><div>現状分析</div></div>
-          <p class="muted">どこを伸ばすと合格に近づくかを可視化します。</p>
-        </div>
-        <div class="card">
-          <div class="minihead"><div class="miniicon">3</div><div>指導開始</div></div>
-          <p class="muted">対面×オンラインで生活に合わせて最適化。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-label">よくある質問</div>
+      <h2 class="section-title">ご不明な点は<br>こちらをご覧ください</h2>
+      <p class="section-lead">お申し込み前に気になる点をまとめました。その他のご質問はお気軽にお問い合わせください。</p>
 
-  <!-- FAQ -->
-  <section class="section soft" id="faq">
-    <div class="container">
-      <h2 class="title">よくある質問</h2>
-      <div style="display:grid;gap:12px">
-        <details>
-          <summary>Q. 今の学力でも間に合いますか？</summary>
-          <p>A. 現状と志望校から逆算し、優先順位を整理します。伸ばすポイントが明確になると、同じ勉強時間でも成果が変わります。</p>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            無料体験授業は本当に0円ですか？
+          </summary>
+          <div class="faq-a">
+            はい、完全無料です。入会金・体験料・テキスト代など、体験授業に関わる費用は一切かかりません。体験後に入会を断っても、しつこい勧誘は行いません。
+          </div>
         </details>
-        <details>
-          <summary>Q. 不登校・発達特性があっても相談できますか？</summary>
-          <p>A. 可能です。ペース設計や成功体験づくりを重視して進め方を整理します。</p>
-        </details>
-        <details>
-          <summary>Q. オンラインでも効果はありますか？</summary>
-          <p>A. Zoomで対応でき、移動負担がない分、継続しやすいメリットがあります。対面との併用も可能です。</p>
-        </details>
-      </div>
 
-      <div style="margin-top:18px">
-        <div class="cta-band">
-          <div>
-            <h3>無料学習相談まで <span style="font-weight:1000">わずか1分</span>（目安）</h3>
-            <div class="small">リンク先で詳細確認 → お申し込みへ。</div>
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            先生との相性が合わなかった場合はどうなりますか？
+          </summary>
+          <div class="faq-a">
+            講師の交代は何度でも無料で承ります。「話し方が合わない」「教え方が自分に合わない」など、どんな理由でも遠慮なくご相談ください。お子さまに最適な講師が見つかるまでサポートします。
           </div>
-          <a class="btn-accent js-aff" href="#" data-cta="final">無料学習相談を申し込む</a>
-        </div>
+        </details>
 
-        <p style="margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.7">
-          ※本ページはアフィリエイト検証用のLPテンプレートです。表現・数値・対応範囲は必ず広告主の最新情報をご確認ください。<br>
-          ※リンクをクリックすると外部サイトへ移動します。
-        </p>
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            どのくらいの頻度で授業を受ければいいですか？
+          </summary>
+          <div class="faq-a">
+            ご家庭の状況や目標によって異なりますが、多くの方は週1〜2回から始めています。受験直前期には週3回以上に増やすケースも多いです。まずは現状ヒアリングで最適な頻度をご提案します。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            対応科目・学年を教えてください。
+          </summary>
+          <div class="faq-a">
+            小学生から高校生まで、国語・算数（数学）・理科・社会・英語のすべての主要科目に対応しています。中学受験・高校受験・大学受験の受験対策にも対応可能です。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            オンライン指導でも効果はありますか？
+          </summary>
+          <div class="faq-a">
+            はい、十分な効果があります。Zoom・Google Meetを使用し、画面共有や書き込み機能を活用した授業を行います。移動時間がない分、集中力が高まるというお声もいただいています。対面と遜色ない指導品質をお約束します。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-mark">Q</span>
+            授業料の目安を教えてください。
+          </summary>
+          <div class="faq-a">
+            授業料は講師の経歴・授業の頻度・科目数によって異なります。まずは無料体験後のヒアリングで、ご家庭のご予算とご要望に合わせたプランをご提案します。明確な料金提示ののち、ご納得いただいてからのご入会となります。
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
 
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <div class="cta-inner">
+        <div class="section-label">無料体験のお申し込み</div>
+        <h2>まずは無料体験授業から<br>始めてみませんか？</h2>
+        <p>お子さまに合う先生が見つかるかどうか、ぜひ一度体験してみてください。<br>入会・継続のプレッシャーは一切ありません。</p>
+
+        <div class="cta-box">
+          <h3>無料体験を申し込む（0円）</h3>
+          <p>30秒で入力完了。後ほど担当スタッフよりご連絡します。</p>
+          <form class="cta-form" action="#" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">お子さまのお名前</label>
+                <input type="text" id="name" name="name" placeholder="例：田中 太郎" required />
+              </div>
+              <div class="form-group">
+                <label for="grade">学年</label>
+                <select id="grade" name="grade" required>
+                  <option value="">選択してください</option>
+                  <option>小学1年生</option>
+                  <option>小学2年生</option>
+                  <option>小学3年生</option>
+                  <option>小学4年生</option>
+                  <option>小学5年生</option>
+                  <option>小学6年生</option>
+                  <option>中学1年生</option>
+                  <option>中学2年生</option>
+                  <option>中学3年生</option>
+                  <option>高校1年生</option>
+                  <option>高校2年生</option>
+                  <option>高校3年生</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">電話番号（任意）</label>
+              <input type="tel" id="phone" name="phone" placeholder="例：090-0000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス</label>
+              <input type="email" id="email" name="email" placeholder="例：example@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">相談したい科目（任意）</label>
+              <select id="subject" name="subject">
+                <option value="">選択してください（任意）</option>
+                <option>国語</option>
+                <option>算数・数学</option>
+                <option>英語</option>
+                <option>理科</option>
+                <option>社会</option>
+                <option>複数科目</option>
+                <option>まだ決まっていない</option>
+              </select>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 2L11 13"/>
+                  <path d="M22 2L15 22l-4-9-9-4 20-7z"/>
+                </svg>
+                無料体験を申し込む（完全無料）
+              </button>
+            </div>
+            <p class="form-note">入会の強制・しつこい勧誘は一切行いません。</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Footer ===== -->
   <footer class="footer">
-    <div class="container">
-      <div>© LP Test.（GitHub Pagesで動く静的LP）</div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:12px;">
+            <div class="logo-mark">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L4 7v10l8 4 8-4V7L12 3z" fill="none" stroke="white" stroke-width="1.8"/>
+                <path d="M12 7v10M8 9l4-2 4 2" stroke="white" stroke-width="1.5" fill="none"/>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span>まなびホーム</span>
+              <small>家庭教師サービス</small>
+            </div>
+          </div>
+          <p>お子さまの「わかった！」を一緒につくる、完全マンツーマンの家庭教師サービスです。15年の指導実績と500名以上の登録講師で、確実な成果をお約束します。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="#features">選ばれる理由</a></li>
+            <li><a href="#flow">指導の流れ</a></li>
+            <li><a href="#voices">お客様の声</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>対応コース</h4>
+          <ul>
+            <li><a href="#">小学生コース（中学受験）</a></li>
+            <li><a href="#">中学生コース（高校受験）</a></li>
+            <li><a href="#">高校生コース（大学受験）</a></li>
+            <li><a href="#">苦手克服・学習習慣コース</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 まなびホーム 家庭教師サービス</span>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <a href="#" style="transition:color .2s;">プライバシーポリシー</a>
+          <a href="#" style="transition:color .2s;">利用規約</a>
+          <a href="#contact" style="transition:color .2s;">お問い合わせ</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // ====== アフィリンク自動付与（位置別 utm_content）======
-    const BASE_AFF_URL = "https://www.kame.co.jp/lp-service01/ac10/";
-    const UTM = {
-      utm_source: "affiliate",
-      utm_medium: "lp",
-      utm_campaign: "gakken_jh_exam"
-    };
-
-    function buildUrl(base, contentLabel){
-      const u = new URL(base);
-      Object.entries(UTM).forEach(([k,v])=>{
-        if(!u.searchParams.has(k)) u.searchParams.set(k, v);
-      });
-      u.searchParams.set("utm_content", contentLabel || "unknown");
-      return u.toString();
-    }
-
-    document.querySelectorAll('a.js-aff').forEach(a=>{
-      const label = a.getAttribute('data-cta') || "unknown";
-      a.setAttribute('href', buildUrl(BASE_AFF_URL, label));
-      a.setAttribute('rel', 'nofollow sponsored noopener');
-      a.setAttribute('target', '_blank');
-    });
-
-    // ===== Tabs =====
-    const tabs = document.querySelectorAll('.tab');
-    const panels = document.querySelectorAll('[data-panel]');
-    tabs.forEach(t=>{
-      t.addEventListener('click', ()=>{
-        const id = t.getAttribute('data-tab');
-        tabs.forEach(x=>x.classList.remove('active'));
-        t.classList.add('active');
-        tabs.forEach(x=>x.setAttribute('aria-selected', x===t ? 'true':'false'));
-        panels.forEach(p=>{
-          p.style.display = (p.getAttribute('data-panel') === id) ? '' : 'none';
-        });
-      });
-    });
-  </script>
 </body>
 </html>
